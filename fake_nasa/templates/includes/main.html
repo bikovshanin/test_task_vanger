@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto text-center">
+      <h1>Космическое агентство</h1>
+      <p>
+        Национальное управление по аэронавтике и исследованию космического
+        пространства — ведомство, относящееся к федеральному правительству США
+        и подчиняющееся непосредственно президенту США.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <img src="{% static 'img/space_agency_horizontal.png' %}"
+           class="img-fluid desktop-img"
+           alt="Изображение NASA для десктопной версии">
+      <img src="{% static 'img/space_agency_vertical.png' %}"
+           class="img-fluid mobile-img"
+           alt="Изображение NASA для мобильной версии">
+    </div>
+  </div>
+</div>
+
+
+

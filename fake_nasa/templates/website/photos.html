@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% load thumbnail %}
+{% block title %}
+  Фотогалерея
+{% endblock %}
+{% block content %}
+  <style>
+      body {
+          background-color: #3C3C3C;
+      }
+
+      .photo-gallery-title {
+          color: white;
+      }
+  </style>
+  <div class="col-md-6 mx-auto text-center">
+    <h2 class="photo-gallery-title">Фотографии</h2>
+  </div>
+  <div class="slider-for">
+    {% for photo in photos %}
+      <div><img src="{% thumbnail photo.file 500x300 crop %}"
+                alt="{{ photo.title }}"></div>
+    {% endfor %}
+  </div>
+
+  <div class="slider-nav">
+    {% for photo in photos %}
+      <div><img src="{% thumbnail photo.file 150x100 crop %}"
+                alt="{{ photo.title }}"></div>
+    {% endfor %}
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script>
+      $(document).ready(function () {
+          $('.slider-for').slick({
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              arrows: false,
+              fade: true,
+              asNavFor: '.slider-nav'
+          });
+          $('.slider-nav').slick({
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              asNavFor: '.slider-for',
+              dots: true,
+              centerMode: true,
+              focusOnSelect: true
+          });
+      });
+  </script>
+  <link href="{% static 'css/slider-styles.css' %}" rel="stylesheet">
+{% endblock %}

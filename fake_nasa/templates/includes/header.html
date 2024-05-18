@@ -1,0 +1,36 @@
+{% load static %}
+<header>
+  <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #0A121E">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarContent" aria-controls="navbarContent"
+              aria-expanded="false">
+        <span class="custom-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand d-lg-none" href="{% url 'website:index' %}">
+        <img src="{% static 'img/logo.png' %}" class="d-inline-block align-top" alt="">
+      </a>
+
+      <a class="navbar-brand d-none d-lg-block order-lg-first"
+         href="{% url 'website:index' %}">
+        <img src="{% static 'img/logo.png' %}" class="d-inline-block align-top" alt="">
+      </a>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a href="" class="nav-link">ПРЕИМУЩЕСТВА</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'website:photo_gallery' %}" class="nav-link">ФОТОГРАФИИ</a>
+          </li>
+        </ul>
+      </div>
+
+      <button type="button" class="btn btn-danger ml-auto">ВХОД</button>
+    </div>
+  </nav>
+</header>
+
+
+
